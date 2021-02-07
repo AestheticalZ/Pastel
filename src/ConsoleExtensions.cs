@@ -162,6 +162,10 @@
         /// <param name="color">The color to use on the specified string.</param>
         public static string Pastel(this string input, Color color)
         {
+            if(Environment.OSVersion.Version.Major != 10)
+            {
+                return input;
+            }
             return _colorFormatFuncs[_enabled][ColorPlane.Foreground](input, color);
         }
 
@@ -172,6 +176,10 @@
         /// <param name="hexColor">The color to use on the specified string.<para>Supported format: [#]RRGGBB.</para></param>
         public static string Pastel(this string input, string hexColor)
         {
+            if (Environment.OSVersion.Version.Major != 10)
+            {
+                return input;
+            }
             return _hexColorFormatFuncs[_enabled][ColorPlane.Foreground](input, hexColor);
         }
 
@@ -184,6 +192,10 @@
         /// <param name="color">The color to use on the specified string.</param>
         public static string PastelBg(this string input, Color color)
         {
+            if (Environment.OSVersion.Version.Major != 10)
+            {
+                return input;
+            }
             return _colorFormatFuncs[_enabled][ColorPlane.Background](input, color);
         }
 
@@ -194,6 +206,10 @@
         /// <param name="hexColor">The color to use on the specified string.<para>Supported format: [#]RRGGBB.</para></param>
         public static string PastelBg(this string input, string hexColor)
         {
+            if (Environment.OSVersion.Version.Major != 10)
+            {
+                return input;
+            }
             return _hexColorFormatFuncs[_enabled][ColorPlane.Background](input, hexColor);
         }
 
